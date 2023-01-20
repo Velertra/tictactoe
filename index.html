@@ -1,0 +1,121 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML 5 Boilerplate</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <div class="game_button" id="game-button">
+        <button class="game_start" id="game_start">Start</button>
+    </div>
+    <div class="gameboard" id="gameboard">
+      
+      
+    </div>
+
+
+
+
+    <script>
+
+      const startButton = document.querySelector('#game_start');
+
+      game_start.addEventListener('click', () => {
+        console.log('yoyyo');
+        });
+
+      
+      function ticTacToeDisplay () {
+        let gameSlots = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+        for (let x = 0; x < gameSlots.length; x++){
+          gameDiv = document.createElement('div');          //creates divs with gameSlots array
+          gameDiv.classList.add("slot")
+          gameDiv.setAttribute('id', gameSlots[x])
+           
+          gameboard.appendChild(gameDiv);
+            /*    
+                let myDiv = document.getElementById(gameSlots[x]);
+                let button = document.createElement('Button');
+                let text = document.createTextNode(gameSlots[x])          //gives each div a button          
+                button.setAttribute('id', gameSlots[x]);
+                button.appendChild(text);
+                myDiv.appendChild(button);
+              */
+        //  hopeThisWorks = document.getElementById(gameSlots[x])
+          
+          let matches = document.querySelectorAll("div.slot");
+          matches.forEach((slot) => {
+          
+          slot.addEventListener('click', () => {                  // click function that switches class 
+          
+          document.querySelectorAll('id', gameSlots[x]).innerHTML = 'x';
+        //  gameDiv.innerHTML = 'x';
+          //runThisCode()
+      //  gamePlay();
+          });
+        });
+
+      
+      
+          function runThisCode() {
+             
+            }
+       //   clickGame();
+        }
+      };
+
+
+
+     
+      
+      function playRound () {
+        let computerTurn = getComputerChoice();
+        function getComputerChoice() {                  // 'i' returns computers random number between 1 - 9.
+          let i = Math.floor(Math.random() * 9) + 1;
+        }  
+        return i;
+      }
+
+
+
+ticTacToeDisplay();
+
+
+
+
+/*
+
+
+
+
+
+
+
+  
+      const calculator = (() => {
+        const add = (a, b) => a + b;
+        const sub = (a, b) => a - b;
+        const mul = (a, b) => a * b;
+        const div = (a, b) => a / b;
+        return {
+          add, 
+          sub,
+          mul,
+          div,
+        };
+      })();
+      */
+
+
+
+
+    </script>
+
+    
+  </body>
+    
+  </html>
