@@ -16,17 +16,18 @@
       
       
     </div>
-
+    <div class="menu" id="menu"></div>
 
 
 
     <script>
-
+/*
       const startButton = document.querySelector('#game_start');
 
       game_start.addEventListener('click', () => {
         console.log('yoyyo');
         });
+*/
 
       let testerDiv = '';
 
@@ -60,27 +61,55 @@
        let matches = document.querySelectorAll('div.slot');
           matches.forEach((slot) => {
           
-          slot.addEventListener('click', () => {                  // click function that switches class 
-            extraTest = '';
-            extraTest += slot.id;
-            tester()
-            
+          slot.addEventListener('click', () => {                  // click function that switches class             
+                      
           document.getElementById(slot.id).innerHTML = 'x';
-
         });
       });
 
-      function tester() {
-        console.log(extraTest);
-        prompt('One player or two?')
-        if () 
+      let menu = document.querySelector('.game_start');
+           
+          
+      menu.addEventListener('click', () => {                            // click function that switches class             
+      
+     document.querySelectorAll('.slot').forEach((element) => {element.innerText = ''});
+     tester()   
+     
+        });
+
+    };         
+          
+       
+  
+
+   
+
+
+    function tester(){
+      document.getElementById('menu').innerHTML = 'one player or two?'
+      let players = ['one_player', 'two_player'];
+
+      for(let x = 0; x < players.length; x++){
+        playerDiv = document.createElement('div');          //creates divs with gameSlots array
+          playerDiv.classList.add("player_div")
+          playerDiv.setAttribute('id', players[x])
+          menu.appendChild(playerDiv);
+          
+          
       }
+        document.getElementById('one_player').innerHTML = 'One Player';
+        document.getElementById('two_player').innerHTML = 'Two player';
+          //console.log('yoyoy')     
+        let onePlayer = document.getElementById('one_player');
+         onePlayer.addEventListener('click', () => {
+          console.log('chuchu')
+        }); 
+        let twoPlayer = document.getElementById('two_player');
+        twoPlayer.addEventListener('click', () => {
+          console.log('twoplayer')
+        });
 
-
-    };
-
-
-
+    }
 
      
 ticTacToeDisplay();
