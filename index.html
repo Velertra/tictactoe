@@ -38,80 +38,87 @@
           gameDiv = document.createElement('div');          //creates divs with gameSlots array
           gameDiv.classList.add("slot")
           gameDiv.setAttribute('id', gameSlots[x])
-        //  testerDiv = gameSlots[x];
-          
-           
           gameboard.appendChild(gameDiv);
-          
-            /*    
-                let myDiv = document.getElementById(gameSlots[x]);
-                let button = document.createElement('Button');
-                let text = document.createTextNode(gameSlots[x])          //gives each div a button          
-                button.setAttribute('id', gameSlots[x]);
-                button.appendChild(text);
-                myDiv.appendChild(button);
-              */
-                     }
-                  //   console.log(gameSlots[3]);
-                   //  testerDiv += gameSlots[x];
-                    // let newTest = testerDiv.toString();
-
-        let extraTest = '';
-
-       let matches = document.querySelectorAll('div.slot');
+                }
+                 
+        
+ 
+        let matches = document.querySelectorAll('div.slot');
           matches.forEach((slot) => {
           
           slot.addEventListener('click', () => {                  // click function that switches class             
                       
           document.getElementById(slot.id).innerHTML = 'x';
+          extraTest = slot.id
+          
+          buttonClicked = true;
         });
       });
-
-      let menu = document.querySelector('.game_start');
-           
-          
-      menu.addEventListener('click', () => {                            // click function that switches class             
-      
-     document.querySelectorAll('.slot').forEach((element) => {element.innerText = ''});
-     tester()   
-     
+ 
+        let menu = document.querySelector('.game_start');
+           menu.addEventListener('click', () => {                                        
+            document.querySelectorAll('.slot').forEach((element) => {element.innerText = ''}); // click function, 
+               
+         //   buttonClicked = false;
+            tester()
         });
-
     };         
           
-       
+    let extraTest = '';   
   
-
+    let buttonClicked = false
    
 
 
-    function tester(){
+     function tester(){
       document.getElementById('menu').innerHTML = 'one player or two?'
       let players = ['one_player', 'two_player'];
 
       for(let x = 0; x < players.length; x++){
         playerDiv = document.createElement('div');          //creates divs with gameSlots array
-          playerDiv.classList.add("player_div")
-          playerDiv.setAttribute('id', players[x])
-          menu.appendChild(playerDiv);
-          
-          
+        playerDiv.classList.add("player_div")
+        playerDiv.setAttribute('id', players[x])
+        menu.appendChild(playerDiv);
       }
+
         document.getElementById('one_player').innerHTML = 'One Player';
         document.getElementById('two_player').innerHTML = 'Two player';
-          //console.log('yoyoy')     
+                                                                          //creates divs asking one player or two
         let onePlayer = document.getElementById('one_player');
-         onePlayer.addEventListener('click', () => {
-          console.log('chuchu')
+        onePlayer.addEventListener('click', () => {
+          
+          gamePlay('x')
         }); 
         let twoPlayer = document.getElementById('two_player');
         twoPlayer.addEventListener('click', () => {
-          console.log('twoplayer')
+          gamePlay('o')
         });
+
+        function gamePlay(y) {
+          if(y == 'x') {
+            console.log('notsureyet')
+          } else if (y == 'o') {
+            console.log('Go first player')
+           
+            if(buttonClicked === true) {              // gamePlay isnt running after a slot is pressed. line 46
+              console.log('pajama')
+             if(extraTest == '5') {
+              console.log('always a surprise')
+            } else if(extraTest == ''){
+              console.log('never sure')
+            } else {
+              console.log('might be working')
+            }; 
+          };
+        };
+      };
+ 
+
 
     }
 
-     
+
+    
 ticTacToeDisplay();
 
     /*  
@@ -122,18 +129,6 @@ ticTacToeDisplay();
         }  
         return i;
       }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -151,7 +146,6 @@ ticTacToeDisplay();
         };
       })();
       */
-
 
 
 
